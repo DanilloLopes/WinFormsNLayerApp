@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using Negocio.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Database.Repositorios
 {
     public class CargoRepository
     {
-        public int Inserir(Cargo cargo)
+        public bool Inserir(Cargo cargo)
         {
             var stringConexao = SqlServer.StrConexao();
 
@@ -27,7 +28,7 @@ namespace Database.Repositorios
            ,[CriadoPor]
            ,[AlteradoEm]
            ,[AlteradoPor])
-     VALUES
+            0VALUES
            (@nome,
             @status,
             @criadoEm,
@@ -44,7 +45,27 @@ namespace Database.Repositorios
             cmd.Parameters.AddWithValue("@alteradoEm", cargo.AlteradoEm);
             cmd.Parameters.AddWithValue("@alteradoPor", cargo.AlteradoPor);
 
+            
+
             sqlConnection.Close();
+
+            return true;
+        }
+        
+        public bool Atualizar(Cargo cargo)
+        {
+            return true;
+        }
+
+        public bool Deletar(int cargoId)
+        {
+            return false;
+        }
+
+        public DataTable ObterTodos(int cargoId)
+        {
+            DataTable dt = new DataTable();
+            return dt;
         }
     }
 }
