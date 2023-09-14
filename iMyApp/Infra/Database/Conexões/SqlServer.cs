@@ -12,7 +12,7 @@ namespace Database.Conexoes
     {
         internal static string StrConexao()
         {
-            return @"Data Source=.\SQLEXPRESS;Initial Catalog=iMyApp;User ID=sa;Password=sql2022";
+            return @"Data Source=.\SQLEXPRESS;Initial Catalog=iMyApp;User ID=sa;Password=sql2022; Trusted_Connection=False; TrustServerCertificate=True;";
         }
         
     }

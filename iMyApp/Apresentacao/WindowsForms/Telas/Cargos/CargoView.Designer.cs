@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            gvCargos = new DataGridView();
             btnNovoCargo = new Button();
             groupBoxCargo = new GroupBox();
             btnSalvar = new Button();
@@ -37,18 +37,18 @@
             btnRecarregar = new Button();
             label1 = new Label();
             colorDialog1 = new ColorDialog();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gvCargos).BeginInit();
             groupBoxCargo.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // gvCargos
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 155);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(776, 204);
-            dataGridView1.TabIndex = 0;
+            gvCargos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvCargos.Location = new Point(13, 155);
+            gvCargos.Name = "gvCargos";
+            gvCargos.RowTemplate.Height = 25;
+            gvCargos.Size = new Size(776, 234);
+            gvCargos.TabIndex = 0;
             // 
             // btnNovoCargo
             // 
@@ -77,17 +77,18 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(652, 20);
+            btnSalvar.Location = new Point(667, 19);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(106, 31);
+            btnSalvar.Size = new Size(87, 31);
             btnSalvar.TabIndex = 3;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // chkStatus
             // 
             chkStatus.AutoSize = true;
-            chkStatus.Location = new Point(520, 22);
+            chkStatus.Location = new Point(546, 23);
             chkStatus.Name = "chkStatus";
             chkStatus.Size = new Size(105, 24);
             chkStatus.TabIndex = 1;
@@ -98,7 +99,7 @@
             // 
             txtCargo.Location = new Point(6, 22);
             txtCargo.Name = "txtCargo";
-            txtCargo.Size = new Size(488, 25);
+            txtCargo.Size = new Size(521, 25);
             txtCargo.TabIndex = 0;
             // 
             // btnRecarregar
@@ -130,10 +131,10 @@
             Controls.Add(btnRecarregar);
             Controls.Add(groupBoxCargo);
             Controls.Add(btnNovoCargo);
-            Controls.Add(dataGridView1);
+            Controls.Add(gvCargos);
             Name = "CargoView";
             Text = "CargoView";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gvCargos).EndInit();
             groupBoxCargo.ResumeLayout(false);
             groupBoxCargo.PerformLayout();
             ResumeLayout(false);
@@ -142,7 +143,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView gvCargos;
         private Button btnNovoCargo;
         private GroupBox groupBoxCargo;
         private Button btnSalvar;

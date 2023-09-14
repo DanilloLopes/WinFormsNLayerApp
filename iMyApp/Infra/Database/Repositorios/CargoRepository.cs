@@ -34,6 +34,7 @@ namespace Database.Repositorios
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
+                    connection.Open();
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@nome", cargo.Nome);
                     cmd.Parameters.AddWithValue("@status", cargo.Status);
@@ -42,7 +43,9 @@ namespace Database.Repositorios
                     cmd.Parameters.AddWithValue("@alteradoEm", cargo.AlteradoEm);
                     cmd.Parameters.AddWithValue("@alteradoPor", cargo.AlteradoPor);
                     var reposta = cmd.ExecuteNonQuery();
+                    connection.Close();
                     return reposta == 1;
+
                 }
             }
             catch(Exception ex) 
@@ -59,10 +62,12 @@ namespace Database.Repositorios
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
+                    connection.Open();
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@nome", cargo.Nome);
                     
                     var reposta = cmd.ExecuteNonQuery();
+                    connection.Close();
                     return reposta == 1;
                 }
             }
@@ -80,10 +85,12 @@ namespace Database.Repositorios
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
+                    connection.Open();
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@Id", cargoId);
 
                     var reposta = cmd.ExecuteNonQuery();
+                    connection.Close();
                     return reposta == 1;
                 }
             }
@@ -95,7 +102,7 @@ namespace Database.Repositorios
 
         public DataTable ObterTodos(int cargoId)
         {
-            var sql = @"";
+            var sql = @"SELECT * FROM Cargo";
 
             SqlDataAdapter dataAdapter = null;
             var dataTable = new DataTable();
@@ -103,12 +110,14 @@ namespace Database.Repositorios
             {
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
+                    connection.Open();
                     var cmd = connection.CreateCommand();
                     
                     cmd.CommandText = sql;
                     
                     dataAdapter = new SqlDataAdapter(sql, connection);
                     dataAdapter.Fill(dataTable);
+                    connection.Close();
                     return dataTable;
                 }
             }
