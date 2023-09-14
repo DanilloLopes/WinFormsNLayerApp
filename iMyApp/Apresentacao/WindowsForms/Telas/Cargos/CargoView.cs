@@ -37,10 +37,6 @@ namespace WindowsForms.Telas.Cargos
 
             var resultado = cargoRepository.Inserir(novoCargo);
 
-            var obterTodos = cargoRepository.ObterTodos;
-
-            gvCargos.DataSource = obterTodos;
-
 
             if (resultado)
             {
@@ -51,7 +47,7 @@ namespace WindowsForms.Telas.Cargos
                 MessageBox.Show("Erro! Verifique e Tente Novamente.");
             }
 
-            
+           
         }
     }
 }
