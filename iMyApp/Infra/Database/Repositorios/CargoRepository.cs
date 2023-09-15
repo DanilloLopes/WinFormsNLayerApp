@@ -54,18 +54,27 @@ namespace Database.Repositorios
             }
         }
         
-        public bool Atualizar(Cargo cargo)
+        public bool Atualizar(Cargo cargo, int id)
         {
             try
             {
-                var sql = @"";
+                var sql = @"UPDATE [dbo].[Cargo]
+                           SET [Nome] = @nome
+                              ,[Status] = @status
+                              ,[AlteradoEm] = @alteradoEm
+                              ,[AlteradoPor] = @alteradoPor
+                         WHERE Id = @id";
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
                     connection.Open();
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@nome", cargo.Nome);
-                    
+                    cmd.Parameters.AddWithValue("@status", cargo.Status);
+                    cmd.Parameters.AddWithValue("@alteradoEm", cargo.AlteradoEm);
+                    cmd.Parameters.AddWithValue("@alteradoPor", cargo.AlteradoPor);
+                    cmd.Parameters.AddWithValue("@id", id);
+
                     var reposta = cmd.ExecuteNonQuery();
                     connection.Close();
                     return reposta == 1;
@@ -100,9 +109,13 @@ namespace Database.Repositorios
             }
         }
 
-        public DataTable ObterTodos(int cargoId)
+        public DataTable ObterTodos()
         {
-            var sql = @"SELECT * FROM Cargo";
+            var sql = @"SELECT [Id]
+                      ,[Nome]
+                      ,[Status]
+                      ,[AlteradoEm]
+                  FROM [dbo].[Cargo]";
 
             SqlDataAdapter dataAdapter = null;
             var dataTable = new DataTable();

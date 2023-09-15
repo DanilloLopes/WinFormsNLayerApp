@@ -14,6 +14,7 @@ namespace WindowsForms.Telas.Cargos
 {
     public partial class CargoView : Form
     {
+        int id = -1;
         public CargoView()
         {
             InitializeComponent();
@@ -29,25 +30,73 @@ namespace WindowsForms.Telas.Cargos
             var nome = txtCargo.Text;
             var status = chkStatus.Checked;
 
-            var novoCargo = new Cargo(nome, status);
+            var cargo = new Cargo(nome, status);
 
-            txtCargo.Text = novoCargo.CriadoPor;
+            txtCargo.Text = cargo.CriadoPor;
 
             var cargoRepository = new CargoRepository();
-
-            var resultado = cargoRepository.Inserir(novoCargo);
-
-
-            if (resultado)
+            if(id == -1)
             {
-                MessageBox.Show("Cargo Cadastrado com Sucesso.");
+                var resultado = cargoRepository.Inserir(cargo);
+
+                if (resultado)
+                {
+                    MessageBox.Show("Cargo Cadastrado com Sucesso.");
+                }
+                else
+                {
+                    MessageBox.Show("Erro! Verifique e Tente Novamente.");
+                }
             }
             else
             {
-                MessageBox.Show("Erro! Verifique e Tente Novamente.");
+                var resultado = cargoRepository.Atualizar(cargo, id);
+                if (resultado)
+                {
+                    MessageBox.Show("Cargo Atualizado com Sucesso.");
+                }
+                else
+                {
+                    MessageBox.Show("Erro! Verifique e Tente Novamente.");
+                }
             }
+            
 
-           
+
+        }
+
+        private void CargoView_Load(object sender, EventArgs e)
+        {
+            InformacoesTabelaCargo();
+        }
+
+
+        private void btnRecarregar_Click(object sender, EventArgs e)
+        {
+            InformacoesTabelaCargo();
+        }
+
+        private void InformacoesTabelaCargo()
+        {
+            var cargoRepository = new CargoRepository();
+
+            var obterTodos = cargoRepository.ObterTodos();
+
+            gvCargos.DataSource = obterTodos;
+        }
+
+        private void gvCargos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+            if (e.RowIndex >= 0)
+            {
+                groupBoxCargo.Show();
+                DataGridViewRow row = gvCargos.Rows[e.RowIndex];
+                txtCargo.Text = row.Cells[1].Value.ToString();
+                id = Convert.ToInt32(row.Cells[0].Value);
+                chkStatus.Checked = Convert.ToBoolean(row.Cells[2].Value.ToString());
+            }
+            
         }
     }
 }

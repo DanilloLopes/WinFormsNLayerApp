@@ -43,12 +43,14 @@
             // 
             // gvCargos
             // 
+            gvCargos.AllowUserToOrderColumns = true;
             gvCargos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gvCargos.Location = new Point(13, 155);
             gvCargos.Name = "gvCargos";
             gvCargos.RowTemplate.Height = 25;
             gvCargos.Size = new Size(776, 234);
             gvCargos.TabIndex = 0;
+            gvCargos.CellMouseClick += gvCargos_CellMouseClick;
             // 
             // btnNovoCargo
             // 
@@ -111,6 +113,7 @@
             btnRecarregar.TabIndex = 4;
             btnRecarregar.Text = "Recarregar";
             btnRecarregar.UseVisualStyleBackColor = true;
+            btnRecarregar.Click += btnRecarregar_Click;
             // 
             // label1
             // 
@@ -134,6 +137,7 @@
             Controls.Add(gvCargos);
             Name = "CargoView";
             Text = "CargoView";
+            Load += CargoView_Load;
             ((System.ComponentModel.ISupportInitialize)gvCargos).EndInit();
             groupBoxCargo.ResumeLayout(false);
             groupBoxCargo.PerformLayout();
