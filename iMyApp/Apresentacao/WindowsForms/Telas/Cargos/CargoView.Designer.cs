@@ -37,6 +37,7 @@
             btnRecarregar = new Button();
             label1 = new Label();
             colorDialog1 = new ColorDialog();
+            Deletar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)gvCargos).BeginInit();
             groupBoxCargo.SuspendLayout();
             SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             gvCargos.AllowUserToOrderColumns = true;
             gvCargos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvCargos.Columns.AddRange(new DataGridViewColumn[] { Deletar });
             gvCargos.Location = new Point(13, 155);
             gvCargos.Name = "gvCargos";
             gvCargos.RowTemplate.Height = 25;
@@ -125,6 +127,13 @@
             label1.TabIndex = 5;
             label1.Text = "Todos os Cargos (GridView)";
             // 
+            // Deletar
+            // 
+            Deletar.HeaderText = "Deletar";
+            Deletar.Name = "Deletar";
+            Deletar.Text = "Deletar";
+            Deletar.UseColumnTextForButtonValue = true;
+            // 
             // CargoView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -156,5 +165,6 @@
         private Button btnRecarregar;
         private Label label1;
         private ColorDialog colorDialog1;
+        private DataGridViewButtonColumn Deletar;
     }
 }

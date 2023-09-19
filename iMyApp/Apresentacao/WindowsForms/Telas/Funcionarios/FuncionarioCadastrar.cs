@@ -1,5 +1,4 @@
-﻿using Negocio.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsForms.Telas.Clientes
+namespace WindowsForms.Telas.Funcionarios
 {
-    public partial class ClienteCadastrar : Form
+    public partial class FuncionarioCadastrar : Form
     {
-        //Construtor
-        public ClienteCadastrar()
+        public FuncionarioCadastrar()
         {
             InitializeComponent();
+        }
 
-            var cliente = new Cliente();
+        private void FuncionarioCadastrar_Load(object sender, EventArgs e)
+        {
 
-            var colaborador = new Funcionario();
         }
     }
 }

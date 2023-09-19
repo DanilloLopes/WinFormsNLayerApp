@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Negocio.Entidades
 {
-    public class Colaborador : Pessoa
+    public class Funcionario : Pessoa
     {
 
     }

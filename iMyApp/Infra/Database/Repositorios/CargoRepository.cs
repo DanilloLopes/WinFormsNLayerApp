@@ -90,7 +90,8 @@ namespace Database.Repositorios
         {
             try
             {
-                var sql = @"";
+                var sql = @"DELETE FROM [dbo].[Cargo]
+                          WHERE Id = @Id";
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
@@ -98,9 +99,9 @@ namespace Database.Repositorios
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@Id", cargoId);
 
-                    var reposta = cmd.ExecuteNonQuery();
+                    var resposta = cmd.ExecuteNonQuery();
                     connection.Close();
-                    return reposta == 1;
+                    return resposta == 1;
                 }
             }
             catch (Exception ex)
@@ -139,5 +140,34 @@ namespace Database.Repositorios
                 throw ex;
             }
         }
+        public List<string> Complemento(string cargo)
+        {
+            var sql = @"SELECT [Nome] FROM [dbo].[Cargo]";
+
+            try
+            {
+                using (var connection = new SqlConnection(SqlServer.StrConexao()))
+                {
+                    connection.Open();
+                    SqlCommand com = new SqlCommand(sql, connection);
+
+                    SqlDataReader reader = com.ExecuteReader();
+
+                    var lista = new List<string>();
+
+                    while (reader.Read())
+                    {
+                        lista.Add(reader.GetString(0).Trim());
+                    }
+
+                    return lista;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }
