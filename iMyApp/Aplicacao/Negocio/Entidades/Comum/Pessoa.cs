@@ -11,6 +11,6 @@ namespace Negocio.Comum
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set;}
         public string Nacionalidade { get; set; }
-
+        public int MyProperty { get; set; }
     }
 }
