@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             gvCargos = new DataGridView();
+            Deletar = new DataGridViewButtonColumn();
             btnNovoCargo = new Button();
             groupBoxCargo = new GroupBox();
             btnSalvar = new Button();
@@ -37,7 +38,6 @@
             btnRecarregar = new Button();
             label1 = new Label();
             colorDialog1 = new ColorDialog();
-            Deletar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)gvCargos).BeginInit();
             groupBoxCargo.SuspendLayout();
             SuspendLayout();
@@ -53,6 +53,13 @@
             gvCargos.Size = new Size(776, 234);
             gvCargos.TabIndex = 0;
             gvCargos.CellMouseClick += gvCargos_CellMouseClick;
+            // 
+            // Deletar
+            // 
+            Deletar.HeaderText = "Deletar";
+            Deletar.Name = "Deletar";
+            Deletar.Text = "Deletar";
+            Deletar.UseColumnTextForButtonValue = true;
             // 
             // btnNovoCargo
             // 
@@ -105,6 +112,7 @@
             txtCargo.Name = "txtCargo";
             txtCargo.Size = new Size(521, 25);
             txtCargo.TabIndex = 0;
+            txtCargo.TextChanged += txtCargo_TextChanged;
             // 
             // btnRecarregar
             // 
@@ -126,13 +134,6 @@
             label1.Size = new Size(192, 20);
             label1.TabIndex = 5;
             label1.Text = "Todos os Cargos (GridView)";
-            // 
-            // Deletar
-            // 
-            Deletar.HeaderText = "Deletar";
-            Deletar.Name = "Deletar";
-            Deletar.Text = "Deletar";
-            Deletar.UseColumnTextForButtonValue = true;
             // 
             // CargoView
             // 

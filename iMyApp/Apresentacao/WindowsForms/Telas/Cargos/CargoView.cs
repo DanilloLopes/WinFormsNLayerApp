@@ -1,5 +1,6 @@
 ﻿using Database.Repositorios;
 using Negocio.Entidades;
+using Negocio.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,7 +38,13 @@ namespace WindowsForms.Telas.Cargos
 
             var cargo = new Cargo(nome, status);
 
-            txtCargo.Text = cargo.CriadoPor;
+            var erros = Validacoes.ValidationErros(cargo);
+
+            foreach(var erro in erros)
+            {
+                MessageBox.Show(erro.ErrorMessage);
+                return;
+            }
 
             var cargoRepository = new CargoRepository();
 

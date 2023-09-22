@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Negocio", "Aplicacao\Negoci
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Infra\Database\Database.csproj", "{D288BB19-5C8E-4136-BC0E-E71296F1ADC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinModernFlatUi", "WinModernFlatUi\WinModernFlatUi.csproj", "{77C05C2F-2368-43A5-8E49-B621D389AE2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D288BB19-5C8E-4136-BC0E-E71296F1ADC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D288BB19-5C8E-4136-BC0E-E71296F1ADC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D288BB19-5C8E-4136-BC0E-E71296F1ADC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C05C2F-2368-43A5-8E49-B621D389AE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C05C2F-2368-43A5-8E49-B621D389AE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C05C2F-2368-43A5-8E49-B621D389AE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C05C2F-2368-43A5-8E49-B621D389AE2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{FDC47741-C73E-40B7-85C4-3D5A7FC97572} = {5BC2B86E-A6EE-403C-95AD-96F58470F1BA}
 		{363A7069-39C8-4130-8D57-687DD273280F} = {0C8F5A90-7A80-4C24-BC32-DFD325C2C188}
 		{D288BB19-5C8E-4136-BC0E-E71296F1ADC8} = {06B162EF-1A99-48BE-B62A-BF695527858C}
+		{77C05C2F-2368-43A5-8E49-B621D389AE2C} = {5BC2B86E-A6EE-403C-95AD-96F58470F1BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEAE6537-4B19-41C9-913C-68F03C67F9FA}
