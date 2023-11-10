@@ -1,5 +1,6 @@
 using WindowsForms.Telas.Cargos;
 using WindowsForms.Telas.Clientes;
+using WindowsForms.Telas.Clientes.Usuarios;
 
 namespace WindowsForms
 {
@@ -20,7 +21,7 @@ namespace WindowsForms
                 ApplicationConfiguration.Initialize();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new CargoView());
+                Application.Run(new frmUsuarios());
             }
             catch(Exception ex)
             {
